@@ -1,0 +1,29 @@
+.mat-table {
+    width: 100%;
+}
+
+.mat-header-cell, .mat-cell {
+    text-align: center;
+}
+
+.mat-column-Nome,
+.mat-column-Sobrenome,
+.mat-column-Email,
+.mat-column-actions {
+    width: 20%;
+}
+
+.mat-column-DataNascimento,
+.mat-column-Escolaridade {
+    width: 10%;
+}
+
+.edit-button {
+    margin-right: 2px;
+}
+
+.add-button {
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
+}

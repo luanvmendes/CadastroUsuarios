@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>ALERTA</h1>
+<div mat-dialog-content>
+  Tem certeza que deseja remover o usuário: {{ data }}?
+</div>
+<div class="div-buttons">
+  <button mat-raised-button (click)="dismiss()">Cancelar</button>
+  <button mat-raised-button mat-dialog-close color="primary" (click)="confirm()">Confirmar</button>
+</div>

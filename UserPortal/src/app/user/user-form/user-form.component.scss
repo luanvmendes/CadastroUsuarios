@@ -1,0 +1,28 @@
+form {
+    text-align: center;
+}
+
+.half-size {
+    width: 47%;
+
+    &.left {
+        margin-right: 6%;
+    }
+}
+
+.full-size {
+    width: 100%;
+}
+
+.div-buttons {
+    margin-top: 30px;
+    text-align: center;
+
+    button {
+        text-transform: uppercase;
+
+        &:first-of-type {
+            margin-left: 15px;
+        }
+    }
+}

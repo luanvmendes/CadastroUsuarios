@@ -1,0 +1,38 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="half-size left">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="this.userForm.controls.nome.hasError('required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="half-size">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput formControlName="sobrenome">
+        <mat-error *ngIf="this.userForm.controls.sobrenome.hasError('required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-size">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-error *ngIf="this.userForm.controls.email.hasError('required')">Campo obrigatório</mat-error>
+        <mat-error *ngIf="this.userForm.controls.email.hasError('pattern')">E-mail deve estar no formato: contato@email.com</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="half-size left">
+        <mat-label>Data Nasc.</mat-label>
+        <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="dataNascimento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="this.userForm.controls.dataNascimento.hasError('required')">Campo obrigatório</mat-error>
+        <mat-error *ngIf="this.userForm.controls.dataNascimento.hasError('matDatepickerMax')">Data de Nascimento não pode ser maior que hoje</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="half-size">
+        <mat-label>Escolaridade</mat-label>
+        <mat-select formControlName="escolaridade">
+            <mat-option *ngFor="let item of escolaridadeList" [value]="item.id">{{item.desc}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.userForm.controls.escolaridade.hasError('required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+
+    <div class="div-buttons">
+        <a href mat-raised-button (click)="dismiss()">Cancelar</a>
+        <button mat-raised-button color="primary" [disabled]="!this.userForm.valid">Salvar</button>
+    </div>
+</form>
